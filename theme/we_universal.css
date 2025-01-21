@@ -146,7 +146,7 @@ html,
 */
 
 ul.topiclist li.row dd {
-  padding: 4px 0 0 10px;
+  padding: 4px 0 4px 10px;
 }
 
 .footer-row {
@@ -262,6 +262,10 @@ ul.topiclist li.row dd {
   transform: translateY(-50%);
 }
 
+.icon[class*="global_"]:before,
+.icon[class*="announce_"]:before,
+.icon[class*="topic_"]:before,
+.icon[class*="sticky_"]:before,
 .row-item[class*="_read"]:before,
 .row-item[class*="_unread"]:before,
 .forum_link:before,
@@ -287,11 +291,14 @@ ul.topiclist li.row dd {
   right: 4px;
 }
 
+.icon[class*="global_"]:before,
+.icon[class*="announce_"]:before,
 .row-item[class*="global_"]:before,
 .row-item[class*="announce_"]:before {
   content: "\f0a1";
 }
 
+.icon[class*="sticky_"]:before,
 .row-item[class*="sticky_"]:before {
   content: "\f08d";
 }
@@ -300,6 +307,7 @@ ul.topiclist li.row dd {
   content: "\f086";
 }
 
+.icon[class*="topic_"]:before,
 .row-item[class*="topic_"]:before,
 .row-item[class*="pm_"]:before {
   content: "\f075";
@@ -390,4 +398,26 @@ ul.topiclist li.row dd {
 
 .row .list-inner {
   padding: 4px 5px;
+}
+
+.icon_subforum {
+    display: inline-block !important;
+    background: transparent none 0 0 no-repeat;
+    background-image: url("./images/subforum.gif");
+    padding-left: 16px;
+    padding-top: 10px;
+}
+
+ul.topiclist dfn {
+    left: -1999px;
+	width: 0px;
+}
+
+.row dl dt.icon::before {
+  padding-right: 0px;
+}
+
+ul.topiclist li.row dl
+{
+  margin: 0px 0 !important;
 }

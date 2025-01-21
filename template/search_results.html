@@ -66,8 +66,8 @@
 			<li class="header">
 				<dl class="row-item">
 					<dt><div class="list-inner">{L_TOPICS}</div></dt>
-					<dd class="posts">{L_STATISTICS}</dd>
-					<dd class="lastpost"><span>{L_LAST_POST}</span></dd>
+					<dd class="posts" title="{L_STATISTICS}"><span class="icon fa-bar-chart"></dd>
+					<dd class="lastpost" title="{L_LAST_POST}"><span><span class="icon fa-clock-o"></span></span></dd>
 					{% EVENT search_results_topic_header_lastpost_after %}
 				</dl>
 			</li>
@@ -144,8 +144,10 @@
 
 						</div>
 					</dd>
-					<dd class="posts">{searchresults.TOPIC_REPLIES} <dfn>{L_REPLIES}</dfn></dd>
-					<dd class="views">{searchresults.TOPIC_VIEWS} <dfn>{L_VIEWS}</dfn></dd>
+					<dd class="posts">
+						{L_REPLIES}: <strong>{searchresults.TOPIC_REPLIES}</strong>
+						{L_VIEWS}: <strong>{searchresults.TOPIC_VIEWS}</strong><br />
+					</dd>
 					<dd class="lastpost">
 						<span><dfn>{L_LAST_POST} </dfn>{L_POST_BY_AUTHOR} <!-- EVENT search_results_last_post_author_username_prepend -->{searchresults.LAST_POST_AUTHOR_FULL}<!-- EVENT search_results_last_post_author_username_append -->
 							<!-- IF not S_IS_BOT -->

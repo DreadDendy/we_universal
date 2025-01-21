@@ -293,3 +293,19 @@ ul.topiclist dt .list-inner {
 		text-align: center;
 	}
 }
+
+@media (max-width: 700px) {
+	.postprofile .inventea-online {
+		right: 5px;
+		top: 16px;
+		padding: 1px 7px 0px;
+		-webkit-transform-origin: unset;
+		transform-origin: unset;
+		-ms-transform: rotate(0deg);
+		-webkit-transform: unset;
+		transform: unset;
+	}
+	.postprofile .inventea-online span {
+		display: none;
+	}
+}

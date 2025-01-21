@@ -82,6 +82,10 @@ ul.topiclist li.row dl {
 	padding: 0;
 }
 
+ul.topiclist li.row dl {
+	min-height: 48px;
+}
+
 /* Cell  */
 ul.topiclist dt,
 ul.topiclist dd,
@@ -97,6 +101,10 @@ ul.topiclist dt,
 ul.topiclist dd {
 	display: table-cell;
 	float: none;
+}
+
+.topiclist .header dt, .topiclist .header dd, .topiclist .header dd .icon {
+	font-size: 15px;
 }
 
 /* Different background in odd columns */
@@ -211,10 +219,11 @@ ul.topiclist.topics li.row dt {
 
 /* Topic icon */
 .forumbg ul.topiclist li.row dt img {
-	margin-top: 25px;
-	margin-left: -20px;
-	max-width: 15px;
-	position: relative;
+	margin: 0;
+	max-width: 20px;
+	position: absolute;
+	bottom: 3px;
+	left: 3px;
 }
 
 a.lastsubject {
@@ -224,6 +233,10 @@ a.lastsubject {
 dd.topics,
 dd.posts {
 	width: 132px;
+}
+
+.topiclist.forums dd.topics, .topiclist.topics dd.posts {
+	text-align: left;
 }
 
 dd.lastpost {
@@ -431,6 +444,25 @@ dl.faq dt {
 	background: var(--inventea-online-bg);
 	color: var(--inventea-text-color);
 	text-transform: uppercase;
+}
+
+#viewprofile .inventea-online {
+	display: block;
+	position: absolute;
+	right: 50px;
+}
+
+.postprofile .inventea-online {
+	position: absolute;
+	z-index: 1;
+	display: block;
+	-ms-transform-origin: 0% 0%;
+	-webkit-transform-origin: 0% 0%;
+	transform-origin: 0% 0%;
+	-ms-transform: rotate(270deg) translateX(-100%);
+	-webkit-transform: rotate(270deg) translateX(-100%);
+	transform: rotate(270deg) translateX(-100%);
+	margin: 0;
 }
 
 .postprofile,
@@ -1196,4 +1228,24 @@ a.right:after {
 
 hr.dashed {
 	border-top: 1px dotted var(--border-color-3);
+}
+
+/**
+ * Forum icons & Topic icons
+ */
+.row-item, .row dt.icon {
+	background: none;
+}
+
+/* Topic row icon links */
+dl a.row-item-link {
+	width: 44px;
+	height: 44px;
+	margin-top: -19px;
+	margin-left: 7px;
+}
+
+/* Forum list column styles */
+.row .list-inner {
+	padding: 2px 0;
 }

@@ -142,7 +142,7 @@
 		<dl class="postprofile" id="profile{postrow.POST_ID}"<!-- IF postrow.S_POST_HIDDEN --> style="display: none;"<!-- ENDIF -->>
 			<dt class="<!-- IF postrow.RANK_TITLE or postrow.RANK_IMG -->has-profile-rank<!-- ELSE -->no-profile-rank<!-- ENDIF --> <!-- IF postrow.POSTER_AVATAR -->has-avatar<!-- ELSE -->no-avatar<!-- ENDIF -->">
 				<!-- IF postrow.S_ONLINE and not postrow.S_POST_HIDDEN -->
-					<div class="inventea-online"><i class="fa fa-power-off"></i> {L_ONLINE}</div>
+					<div class="inventea-online"><i class="fa fa-power-off"></i><span> {L_ONLINE}</span></div>
 				<!-- ENDIF -->
 
 				<div class="avatar-container">
@@ -215,7 +215,7 @@
 			<!-- IF postrow.S_POST_HIDDEN -->
 				<!-- IF postrow.S_POST_DELETED -->
 					<div class="ignore" id="post_hidden{postrow.POST_ID}">
-                        {postrow.L_POST_DELETED_MESSAGE}<br>
+						{postrow.L_POST_DELETED_MESSAGE}<br>
 						<a class="display_post" data-post-id="{{ postrow.POST_ID }}" href="{{ postrow.U_MINI_POST_VIEW }}">{{ lang('POST_DISPLAY') }}</a>
 					</div>
 				<!-- ELSEIF postrow.S_IGNORE_POST -->
@@ -228,12 +228,13 @@
 			<div id="post_content{postrow.POST_ID}"<!-- IF postrow.S_POST_HIDDEN --> style="display: none;"<!-- ENDIF -->>
 
 			<!-- EVENT viewtopic_body_post_subject_before -->
-			<h3 {% if postrow.S_FIRST_ROW %}class="first"{% endif %}>
+		<h3 {% if postrow.S_FIRST_ROW %}class="first"{% endif %}>
 			{% if postrow.POST_ICON_IMG %}
 				<img src="{{ T_ICONS_PATH }}{{ postrow.POST_ICON_IMG }}" width="{{ postrow.POST_ICON_IMG_WIDTH }}" height="{{ postrow.POST_ICON_IMG_HEIGHT }}" alt="{{ postrow.POST_ICON_IMG_ALT }}" title="{{ postrow.POST_ICON_IMG_ALT }}">
 			{% endif %}
 			<a {% if postrow.S_FIRST_UNREAD %}class="first-unread" {% endif %}href="{{ postrow.U_MINI_POST }}">{{ postrow.POST_SUBJECT }}</a>
-			</h3>
+		</h3>
+
 		<!-- DEFINE $SHOW_POST_BUTTONS = (postrow.U_EDIT or postrow.U_DELETE or postrow.U_REPORT or postrow.U_WARN or postrow.U_INFO or postrow.U_QUOTE) -->
 		<!-- EVENT viewtopic_body_post_buttons_list_before -->
 		<!-- IF not S_IS_BOT -->
@@ -258,7 +259,8 @@
 						<li>
 							<a href="{postrow.U_REPORT}" title="{L_REPORT_POST}" class="button button-icon-only">
 								<i class="icon fa-exclamation fa-fw" aria-hidden="true"></i><span class="sr-only">{L_BUTTON_REPORT}</span>
-							</a>						</li>
+							</a>
+						</li>
 					<!-- ENDIF -->
 					<!-- IF postrow.U_WARN -->
 						<li>
@@ -304,7 +306,7 @@
 			<!-- IF postrow.S_CAN_APPROVE -->
 			<form method="post" class="mcp_approve" action="{postrow.U_APPROVE_ACTION}">
 				<p class="post-notice unapproved">
-					<span><i class="icon fa-question icon-red fa-fw" aria-hidden="true"></i></span>				
+					<span><i class="icon fa-question icon-red fa-fw" aria-hidden="true"></i></span>
 					<strong>{L_POST_UNAPPROVED_ACTION}</strong>
 					<input class="button2" type="submit" value="{L_DISAPPROVE}" name="action[disapprove]" />
 					<input class="button1" type="submit" value="{L_APPROVE}" name="action[approve]" />
@@ -337,9 +339,11 @@
 				<a href="{postrow.U_MCP_REPORT}"><i class="icon fa-exclamation fa-fw icon-red" aria-hidden="true"></i><strong>{L_POST_REPORTED}</strong></a>
 			</p>
 			<!-- ENDIF -->
-			
+
 			{% EVENT viewtopic_body_postrow_content_before %}
+
 			<div class="content">{postrow.MESSAGE}</div>
+
 			<!-- EVENT viewtopic_body_postrow_content_after -->
 
 			<!-- IF postrow.S_HAS_ATTACHMENTS -->
@@ -369,6 +373,8 @@
 
 			<!-- IF postrow.BUMPED_MESSAGE --><div class="notice"><br /><br />{postrow.BUMPED_MESSAGE}</div><!-- ENDIF -->
 			<!-- EVENT viewtopic_body_postrow_post_notices_after -->
+
+
 			{% EVENT viewtopic_body_postrow_signature_before %}
 				{% if postrow.SIGNATURE %}<div id="sig{{ postrow.POST_ID }}" class="signature">{{ postrow.SIGNATURE }}</div>{% endif %}
 			{% EVENT viewtopic_body_postrow_signature_after %}
@@ -412,11 +418,10 @@
 			<!-- ENDIF -->
 		</a>
 	<!-- ENDIF -->
-
 	<!-- EVENT viewtopic_buttons_bottom_after -->
 
 	<!-- INCLUDE viewtopic_topic_tools.html -->
-	
+
 	<!-- IF (S_NUM_POSTS > 1 or .pagination) and not S_IS_BOT  -->
 		<form method="post" action="{S_TOPIC_ACTION}">
 		<!-- INCLUDE display_options.html -->
@@ -459,11 +464,14 @@
 <!-- INCLUDE jumpbox.html -->
 
 {% EVENT viewtopic_body_online_list_before %}
+
 <!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
 	<div class="stat-block online-list">
 		<h3><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a></h3>
 		<p>{LOGGED_IN_USER_LIST}</p>
 	</div>
 <!-- ENDIF -->
+
+{% EVENT viewtopic_body_online_list_after %}
 
 <!-- INCLUDE overall_footer.html -->

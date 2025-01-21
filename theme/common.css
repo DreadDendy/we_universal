@@ -207,6 +207,13 @@ a.header-avatar span:after {
  * with low screen resolution it's replaced by dropdown menu with activation button
  * located in user menu.
  */
+
+.inventea-forum-menu .inventea-menu {
+    display: flex;
+    flex-flow: wrap-reverse;
+    justify-content: right;
+}
+
 .inventea-posts-menu,
 .inventea-forum-menu {
 	position: absolute;
@@ -449,6 +456,12 @@ p.post-notice a {
 	filter: none;
 	color: var(--color-1);
 	text-shadow: none;
+}
+
+.row .pagination {
+	margin-right: 6px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 /**
