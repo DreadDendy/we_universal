@@ -82,7 +82,6 @@
 					<dd>
 						<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT --><a href="{searchresults.U_NEWEST_POST}" class="row-item-link"></a><!-- ENDIF -->
 						<div class="list-inner">
-
 							<!-- EVENT topiclist_row_prepend -->
 							<!-- IF searchresults.S_UNREAD_TOPIC and not S_IS_BOT -->
 								<a class="unread" href="{searchresults.U_NEWEST_POST}">
@@ -106,9 +105,8 @@
 								</a>
 							<!-- ENDIF -->
 							<br />
-							
 							<!-- EVENT topiclist_row_topic_title_after -->
-							
+
 							<!-- IF not S_IS_BOT -->
 								<div class="responsive-show" style="display: none;">
 									{L_LAST_POST} {L_POST_BY_AUTHOR} <!-- EVENT search_results_last_post_author_username_prepend -->{searchresults.LAST_POST_AUTHOR_FULL}<!-- EVENT search_results_last_post_author_username_append --> &laquo; <a href="{searchresults.U_LAST_POST}" title="{L_GOTO_LAST_POST}"><time datetime="{searchresults.LAST_POST_TIME_RFC3339}">{searchresults.LAST_POST_TIME}</time></a>
@@ -124,9 +122,10 @@
 								{L_POST_BY_AUTHOR} <!-- EVENT search_results_topic_author_username_prepend -->{searchresults.TOPIC_AUTHOR_FULL}<!-- EVENT search_results_topic_author_username_append --> &raquo; <time datetime="{searchresults.FIRST_POST_TIME_RFC3339}">{searchresults.FIRST_POST_TIME}</time> &raquo; {L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a>
 								{% EVENT topiclist_row_topic_by_author_after %}
 							</div>
+
 							<!-- IF .searchresults.pagination -->
 							<div class="pagination">
-								<span><i class="icon fa-clone fa-fw" aria-hidden="true"></i></span>							
+								<span><i class="icon fa-clone fa-fw" aria-hidden="true"></i></span>
 								<ul>
 								<!-- BEGIN pagination -->
 									<!-- IF searchresults.pagination.S_IS_PREV -->
@@ -139,9 +138,8 @@
 								</ul>
 							</div>
 							<!-- ENDIF -->
-							
-							<!-- EVENT topiclist_row_append -->
 
+							<!-- EVENT topiclist_row_append -->
 						</div>
 					</dd>
 					<dd class="posts">
@@ -202,7 +200,7 @@
 		</dl>
 
 		<div class="postbody">
-		{% EVENT search_results_post_subject_before %}
+			{% EVENT search_results_post_subject_before %}
 			<h3><a href="{searchresults.U_VIEW_POST}">{searchresults.POST_SUBJECT}</a></h3>
 			<div class="content">{searchresults.MESSAGE}</div>
 			<!-- EVENT search_results_content_after -->
@@ -231,8 +229,8 @@
 	<form method="post" action="{S_SEARCH_ACTION}">
 		<!-- INCLUDE display_options.html -->
 	</form>
-	<!-- ENDIF -->
-	
+		<!-- ENDIF -->
+
 	<div class="pagination">
 		{SEARCH_MATCHES}
 		<!-- IF .pagination -->
@@ -243,7 +241,6 @@
 	</div>
 </div>
 {% EVENT search_results_jumpbox_before %}
-
 <!-- INCLUDE jumpbox.html -->
 
 <!-- INCLUDE overall_footer.html -->
