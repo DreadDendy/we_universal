@@ -487,3 +487,7 @@ fieldset dl:hover dt label {
 	height: 1em;
 	width: 1em;
 }
+
+.avatar-rank-container {
+	max-width: 20%;
+}
